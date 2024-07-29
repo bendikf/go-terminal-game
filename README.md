@@ -4,7 +4,7 @@ Go Terminal Game is a terminal application which lets two players engage in a ga
 
 The aim of the project was to learn .NET/C# (I was ready for a more challenging exercise after tackling [Tic Tac Toe](https://github.com/bendikf/tic-tac-toe)).
 
-The test projects were written using [MSTest](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-mstest-intro), [NUnit](https://nunit.org/) and [xUnit](https://xunit.net/) respectively. The aim of each of the test projects was to familiarise myself with a different unit-testing framework.
+The test projects were written using [MSTest](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-mstest-intro), [NUnit](https://nunit.org/) and [xUnit](https://xunit.net/) respectively (to be committed...). The aim of each of the test projects was to familiarise myself with a different unit-testing framework.
 
 ## Introduction to Go
 
