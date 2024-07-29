@@ -1,6 +1,6 @@
 # Go Terminal Game
 
-This is a terminal application which lets two players engage in a game of Go using hotseat multiplayer procedures (i.e. taking turns at the the keyboard. It's not that fancy).
+Go Terminal Game is a terminal application which lets two players engage in a game of Go using hotseat multiplayer procedures (i.e. taking turns at the the keyboard. It's not that fancy).
 
 The aim of the project was to learn .NET/C# (I was ready for a more challenging exercise after tackling [Tic Tac Toe](https://github.com/bendikf/tic-tac-toe)).
 
