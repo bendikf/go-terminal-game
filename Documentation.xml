@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoTerminalGame.Core</name>
+    </assembly>
+    <members>
+        <member name="M:GoTerminalGame.Core.Game.#ctor(System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:GoTerminalGame.Core.Game"/> class.
+            </summary>
+            <param name="size">The size of the game board.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.Game.Play">
+            <summary>
+                Starts the game.
+            </summary>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoard.#ctor(System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:GoTerminalGame.Core.GameBoard"/> class.
+            </summary>
+            <param name="size">The size of the game board.</param>
+            <exception cref="T:System.ArgumentException">Throws when board size is not 9, 13 or 19.</exception>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoard.Populate(GoTerminalGame.Core.GameState)">
+            <summary>
+                Populates the game board with the playing pieces from the game state.
+            </summary>
+            <param name="gameState">The current game state.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoard.SetupBoard(System.Int32)">
+            <summary>
+                Sets up the layout of the game board according to the board size.
+            </summary>
+            <param name="size">The size of the game board.</param>
+            <returns>A 2D array representing the game board layout.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoardRenderer.Render(GoTerminalGame.Core.GameBoard,GoTerminalGame.Core.GameState)">
+            <summary>
+                Renders the heads-up display and the game board.
+            </summary>
+            <param name="gameBoard">The game board to render.</param>
+            <param name="gameState">The current game state.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoardRenderer.RenderGameBoard(GoTerminalGame.Core.GameBoard)">
+            <summary>
+                Renders the game board.
+            </summary>
+            <param name="gameBoard">The game board to render.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoardRenderer.RenderHeadsUpDisplay(System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+                Renders the heads-up display.
+            </summary>
+            <param name="boardSize">The size of the board.</param>
+            <param name="nextColorToPlay">The active player's color.</param>
+            <param name="capturedWhite">The number of captured white stones.</param>
+            <param name="capturedBlack">THe number of captured black stones.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoardRenderer.RenderScores(System.Int32,System.Int32)">
+            <summary>
+                Renders the game over screen and displays the winner.
+            </summary>
+            <param name="blackScore">The black player's score.</param>
+            <param name="whiteScore">The white player's score.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameBoardRenderer.ResetToOriginalColors">
+            <summary>
+                Resets the console colors to their original values.
+            </summary>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameLogic.IsSpaceFree(GoTerminalGame.Core.GameState,System.Int32,System.Int32)">
+            <summary>
+                Determines if the specified space is free.
+            </summary>
+            <param name="gameState">The current game state.</param>
+            <param name="row">The row to check.</param>
+            <param name="col">The column to check.</param>
+            <returns>A value indicating whether the space is free.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameLogic.GetAdjacentGroups(GoTerminalGame.Core.GameState,System.Int32,System.Int32)">
+            <summary>
+                Identifies the groups of stones which are adjacent to the specified space.
+            </summary>
+            <param name="gameState">The current game state.</param>
+            <param name="row">The row from which to check for adjacent groups.</param>
+            <param name="col">The column from which to check for adjacent groups.</param>
+            <returns>A list of adjacent groups.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameLogic.DFS(System.Nullable{System.Char}[0:,0:],System.Int32,System.Int32,System.Nullable{System.Char},System.Boolean[0:,0:],System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
+            <summary>
+                Performs a depth-first search on the game board to identify groups of adjacent spaces with the same value.
+            </summary>
+            <param name="grid">A 2SD array representing the current state of the game board.</param>
+            <param name="row">The row to start the search from.</param>
+            <param name="col">The column to start the search from.</param>
+            <param name="targetColor">The color to search for.</param>
+            <param name="visited">An array to keep track of visited spaces.</param>
+            <param name="coordinates">An array to store the coordinates of spaces in the group.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameLogic.IsGroupCaptured(GoTerminalGame.Core.GameState,System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
+            <summary>
+                Determines if the specified group is captured.
+            </summary>
+            <param name="gameState">The current game state.</param>
+            <param name="coordinates">A list of coordinates representing the group.</param>
+            <returns>A boolean value indicating whether the group is captured.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameLogic.IsGroupCaptured(GoTerminalGame.Core.GameState,System.Int32,System.Int32)">
+            <summary>
+                Determines if the specified stone belongs to a captured group.
+            </summary>
+            <param name="gameState">The current game state.</param>
+            <param name="row">The row to check.</param>
+            <param name="col">The column to check.</param>
+            <returns>A boolean value indicating whether the stone belongs to a captured group.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.SelectMenu.SelectGameMode">
+            <summary>
+                Welcomes the user to the game and prompts them to select a board size.
+            </summary>
+            <returns>A character representing the player's choice.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.#ctor(System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:GoTerminalGame.Core.GameState"/> class.
+            </summary>
+            <param name="size">The size of the game board.</param>
+            <exception cref="T:System.ArgumentException">Throws when board size is not 9, 13 or 19.</exception>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.NextColorToPlay">
+            <summary>
+                Advances the color to play to the next player's color.
+            </summary>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.GetStoneColor(System.Int32,System.Int32)">
+            <summary>
+                Gets the color of the stone at the given coordinates.
+            </summary>
+            <param name="row">The row to check.</param>
+            <param name="col">The column to check.</param>
+            <returns>A character representing the color of the stone or null if there is no stone there.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.UpdateState(System.Nullable{System.Char}[0:,0:])">
+            <summary>
+                Updates the state of the game.
+            </summary>
+            <param name="updatedState">A 2D array representing the updated game state.</param>
+            <exception cref="T:System.ArgumentException">Throws when the updated state uses the wrong board size.</exception>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.AddStone(System.Int32,System.Int32)">
+            <summary>
+                Adds a stone of the specified color to the game board.
+            </summary>
+            <param name="row">The row to place the stone in.</param>
+            <param name="col">The column to place the stone in.</param>
+            <exception cref="T:System.ArgumentException">Throws when the coordinates are out of bounds.</exception>
+            <exception cref="T:System.ArgumentException">TThrows when the space is already occupied by another stone.</exception>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.RemoveStone(System.Int32,System.Int32)">
+            <summary>
+                Removes a stone from the game board.
+            </summary>
+            <param name="row">The row of the stone to be removed.</param>
+            <param name="col">The column of the stone to be removed.</param>
+            <exception cref="T:System.ArgumentException">Throws when the coordinates are out of bounds.</exception>
+            <exception cref="T:System.ArgumentException">Throws when space is empty.</exception>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.RemoveStones(System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
+            <summary>
+                Removes a list of stones from the game board by calling <see cref="M:GoTerminalGame.Core.GameState.RemoveStone(System.Int32,System.Int32)"/>
+            </summary>
+            <param name="coordinates">A list of coordinates representing the stones to be removed.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.GetGameState">
+            <summary>
+                Gets the current state of the game as a 2D array. 
+            </summary>
+            <returns>A 2D array representing the current state of the game.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.Equals(System.Object)">
+            <summary>
+                Determines if two game states are equal.
+            </summary>
+            <param name="obj">An object to compare to.</param>
+            <returns>A boolean indicating if the objects are considered equal.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.Equals(GoTerminalGame.Core.GameState)">
+            <summary>
+                Determines if two game states are equal by comparing the stones on the board and the active player's color.
+            </summary>
+            <param name="other">The other game state to compare to.</param>
+            <returns>A boolean indicating if the objects are considered equal.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.GameState.GetHashCode">
+            <summary>
+                Gets the hash code of the game state, represented by the stones on the board and the active player's color.
+            </summary>
+            <returns>A hash code of the game state.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.InputParser.ReadInput">
+            <summary>
+                Reads the player's input from the console.
+            </summary>
+            <returns>The player's input as an uppercase string.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.InputParser.ParseInput(System.String)">
+            <summary>
+                Parses the input string into a row and column number.
+            </summary>
+            <param name="input">The input string to parse.</param>
+            <returns>A tuple containing the row and column number.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.Program.Main(System.String[])">
+            <summary>
+                The main entry point for the Go Terminal Game application. Prompts the user for a board size and starts a new game on a board of that size.
+            </summary>
+            <param name="args">Command-line arguments.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.ScoreCalculator.CalculateScore(GoTerminalGame.Core.GameState)">
+            <summary>
+                Calculates the player's scores from the given game state.
+            </summary>
+            <param name="gameState">The current game state.</param>
+            <returns>The player's scores as a tuple.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.ScoreCalculator.FindAllAreas(GoTerminalGame.Core.GameState)">
+            <summary>
+                Finds all areas to be scored on the board.
+            </summary>
+            <param name="gameState">The current game state.</param>
+            <returns>A list of areas to be scored.</returns>
+        </member>
+        <member name="M:GoTerminalGame.Core.ScoreCalculator.ScoreArea(System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}},GoTerminalGame.Core.GameState,System.Int32@,System.Int32@)">
+            <summary>
+                Scores an area on the board if it is completely enclosed by one player's color or the edge of the game board.
+            </summary>
+            <param name="area">The coordinates of the empty spaces in area to be scored.</param>
+            <param name="gameState">The current game state.</param>
+            <param name="blackScore">A reference to the black player's score.</param>
+            <param name="whiteScore">A reference to the white player's score.</param>
+        </member>
+        <member name="M:GoTerminalGame.Core.ScoreCalculator.GetKomi">
+            <summary>
+                Gets the komi value.
+            </summary>
+            <returns>An integer representing the komi value.</returns>
+        </member>
+    </members>
+</doc>
