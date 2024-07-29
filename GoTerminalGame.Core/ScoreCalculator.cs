@@ -24,6 +24,11 @@ namespace GoTerminalGame.Core
     {
         private static int _komi = 7;  // Default komi is 7 for area scoring.
 
+        /// <summary>
+        ///     Calculates the player's scores from the given game state.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
+        /// <returns>The player's scores as a tuple.</returns>
         public static (int, int) CalculateScore(GameState gameState)
         {
             // Initialize scores, accounting for komi
@@ -44,6 +49,11 @@ namespace GoTerminalGame.Core
             return (blackScore, whiteScore);
         }
 
+        /// <summary>
+        ///     Finds all areas to be scored on the board.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
+        /// <returns>A list of areas to be scored.</returns>
         private static List<List<(int, int)>> FindAllAreas(GameState gameState)
         {
             List<List<(int, int)>> areas = new List<List<(int, int)>>();
@@ -68,6 +78,13 @@ namespace GoTerminalGame.Core
             return areas;
         }
 
+        /// <summary>
+        ///     Scores an area on the board if it is completely enclosed by one player's color or the edge of the game board.
+        /// </summary>
+        /// <param name="area">The coordinates of the empty spaces in area to be scored.</param>
+        /// <param name="gameState">The current game state.</param>
+        /// <param name="blackScore">A reference to the black player's score.</param>
+        /// <param name="whiteScore">A reference to the white player's score.</param>
         private static void ScoreArea(List<(int, int)> area, GameState gameState, ref int blackScore, ref int whiteScore)
         {   
             char? colorToScore = null;
@@ -109,6 +126,10 @@ namespace GoTerminalGame.Core
             }
         }
 
+        /// <summary>
+        ///     Gets the komi value.
+        /// </summary>
+        /// <returns>An integer representing the komi value.</returns>
         public static int GetKomi()
         {
             return _komi;

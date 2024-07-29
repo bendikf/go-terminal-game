@@ -30,6 +30,11 @@ namespace GoTerminalGame.Core
         private readonly ConsoleColor _blackStoneColor = ConsoleColor.Black;
         private readonly ConsoleColor _whiteStoneColor = ConsoleColor.White;
 
+        /// <summary>
+        ///     Renders the heads-up display and the game board.
+        /// </summary>
+        /// <param name="gameBoard">The game board to render.</param>
+        /// <param name="gameState">The current game state.</param>
         public void Render(GameBoard gameBoard, GameState gameState)
         {
             Console.Clear();
@@ -37,6 +42,10 @@ namespace GoTerminalGame.Core
             RenderGameBoard(gameBoard);
         }
 
+        /// <summary>
+        ///     Renders the game board.
+        /// </summary>
+        /// <param name="gameBoard">The game board to render.</param>
         public void RenderGameBoard(GameBoard gameBoard)
         {
             Console.Write("   ");
@@ -76,6 +85,13 @@ namespace GoTerminalGame.Core
             Console.WriteLine();
         }
 
+        /// <summary>
+        ///     Renders the heads-up display.
+        /// </summary>
+        /// <param name="boardSize">The size of the board.</param>
+        /// <param name="nextColorToPlay">The active player's color.</param>
+        /// <param name="capturedWhite">The number of captured white stones.</param>
+        /// <param name="capturedBlack">THe number of captured black stones.</param>
         public void RenderHeadsUpDisplay(int boardSize, string nextColorToPlay, int capturedWhite, int capturedBlack)
         {
             // Game name and board size:
@@ -112,6 +128,11 @@ namespace GoTerminalGame.Core
             Console.WriteLine(Environment.NewLine);
         }
 
+        /// <summary>
+        ///     Renders the game over screen and displays the winner.
+        /// </summary>
+        /// <param name="blackScore">The black player's score.</param>
+        /// <param name="whiteScore">The white player's score.</param>
         public void RenderScores(int blackScore, int whiteScore)
         {
             Console.WriteLine("GAME OVER!".PadLeft(20) + Environment.NewLine);
@@ -147,6 +168,9 @@ namespace GoTerminalGame.Core
             Console.WriteLine();
         }
 
+        /// <summary>
+        ///     Resets the console colors to their original values.
+        /// </summary>
         public void ResetToOriginalColors()
         {
             Console.BackgroundColor = _originalBGColor;

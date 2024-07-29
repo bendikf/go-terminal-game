@@ -29,6 +29,11 @@ namespace GoTerminalGame.Core
         public int CapturedWhite { get; set; }
         public int CapturedBlack { get; set; }
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="GameState"/> class.
+        /// </summary>
+        /// <param name="size">The size of the game board.</param>
+        /// <exception cref="ArgumentException">Throws when board size is not 9, 13 or 19.</exception>
         public GameState(int size)
         {
             if (size != 19 && size != 13 && size != 9)
@@ -53,15 +58,29 @@ namespace GoTerminalGame.Core
             }   
         }
 
+        /// <summary>
+        ///     Advances the color to play to the next player's color.
+        /// </summary>
         public void NextColorToPlay()
         {
             ColorToPlay = ColorToPlay == "black" ? "white" : "black";
         }
 
+        /// <summary>
+        ///     Gets the color of the stone at the given coordinates.
+        /// </summary>
+        /// <param name="row">The row to check.</param>
+        /// <param name="col">The column to check.</param>
+        /// <returns>A character representing the color of the stone or null if there is no stone there.</returns>
         public char? GetStoneColor(int row, int col) {
             return State[row, col];
         }
 
+        /// <summary>
+        ///     Updates the state of the game.
+        /// </summary>
+        /// <param name="updatedState">A 2D array representing the updated game state.</param>
+        /// <exception cref="ArgumentException">Throws when the updated state uses the wrong board size.</exception>
         public void UpdateState(char?[,] updatedState)
         {
             if (updatedState.GetLength(0) != _boardSize || updatedState.GetLength(1) != _boardSize)
@@ -71,6 +90,13 @@ namespace GoTerminalGame.Core
             State = updatedState;
         }
 
+        /// <summary>
+        ///     Adds a stone of the specified color to the game board.
+        /// </summary>
+        /// <param name="row">The row to place the stone in.</param>
+        /// <param name="col">The column to place the stone in.</param>
+        /// <exception cref="ArgumentException">Throws when the coordinates are out of bounds.</exception>
+        /// <exception cref="ArgumentException">TThrows when the space is already occupied by another stone.</exception>
         public void AddStone(int row, int col)
         {
             if (row < 0 || row >= _boardSize || col < 0 || col >= _boardSize)
@@ -88,6 +114,13 @@ namespace GoTerminalGame.Core
             }
         }
 
+        /// <summary>
+        ///     Removes a stone from the game board.
+        /// </summary>
+        /// <param name="row">The row of the stone to be removed.</param>
+        /// <param name="col">The column of the stone to be removed.</param>
+        /// <exception cref="ArgumentException">Throws when the coordinates are out of bounds.</exception>
+        /// <exception cref="ArgumentException">Throws when space is empty.</exception>
         public void RemoveStone(int row, int col)
         {
             if (col < 0 || col >= _boardSize || row < 0 || row >= _boardSize)
@@ -104,6 +137,10 @@ namespace GoTerminalGame.Core
             }
         }
 
+        /// <summary>
+        ///     Removes a list of stones from the game board by calling <see cref="RemoveStone(int, int)"/>
+        /// </summary>
+        /// <param name="coordinates">A list of coordinates representing the stones to be removed.</param>
         public void RemoveStones(List<(int row, int col)> coordinates)
         {
             for (int i = 0; i < coordinates.Count(); i++)
@@ -112,6 +149,10 @@ namespace GoTerminalGame.Core
             }
         }
 
+        /// <summary>
+        ///     Gets the current state of the game as a 2D array. 
+        /// </summary>
+        /// <returns>A 2D array representing the current state of the game.</returns>
         public string?[] GetGameState () 
         {
             // Flatten the array
@@ -128,6 +169,11 @@ namespace GoTerminalGame.Core
             return gameStateSummary;
         }
 
+        /// <summary>
+        ///     Determines if two game states are equal.
+        /// </summary>
+        /// <param name="obj">An object to compare to.</param>
+        /// <returns>A boolean indicating if the objects are considered equal.</returns>
         public override bool Equals(object? obj)
         {
             if (obj is null || GetType() != obj.GetType())
@@ -138,6 +184,11 @@ namespace GoTerminalGame.Core
             return Equals(other);
         }
 
+        /// <summary>
+        ///     Determines if two game states are equal by comparing the stones on the board and the active player's color.
+        /// </summary>
+        /// <param name="other">The other game state to compare to.</param>
+        /// <returns>A boolean indicating if the objects are considered equal.</returns>
         public bool Equals (GameState other)
         {
             if (other is null)
@@ -162,6 +213,10 @@ namespace GoTerminalGame.Core
             return true;
         }
 
+        /// <summary>
+        ///     Gets the hash code of the game state, represented by the stones on the board and the active player's color.
+        /// </summary>
+        /// <returns>A hash code of the game state.</returns>
         public override int GetHashCode()
         {
             var hash = new HashCode();

@@ -22,9 +22,13 @@ namespace GoTerminalGame.Core
 {
     public class SelectMenu
     {
+        /// <summary>
+        ///     Welcomes the user to the game and prompts them to select a board size.
+        /// </summary>
+        /// <returns>A character representing the player's choice.</returns>
         public static char SelectGameMode()
         {
-                Console.WriteLine(Environment.NewLine + "Welcome to the game of Go!".PadLeft(30) + Environment.NewLine);
+            Console.WriteLine(Environment.NewLine + "Welcome to the game of Go!".PadLeft(30) + Environment.NewLine);
 
             Console.WriteLine("Select a board size to play on:".PadLeft(33) + Environment.NewLine);
             Console.WriteLine("a) 19×19 (default)".PadLeft(29));

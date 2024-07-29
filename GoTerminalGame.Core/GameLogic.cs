@@ -22,11 +22,25 @@ namespace GoTerminalGame.Core
 {
     public class GameLogic
     {
-        public static bool IsSpotFree(GameState gameState, int row, int col)
+        /// <summary>
+        ///     Determines if the specified space is free.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
+        /// <param name="row">The row to check.</param>
+        /// <param name="col">The column to check.</param>
+        /// <returns>A value indicating whether the space is free.</returns>
+        public static bool IsSpaceFree(GameState gameState, int row, int col)
         {
             return gameState.State[row, col] is null;
         }
 
+        /// <summary>
+        ///     Identifies the groups of stones which are adjacent to the specified space.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
+        /// <param name="row">The row from which to check for adjacent groups.</param>
+        /// <param name="col">The column from which to check for adjacent groups.</param>
+        /// <returns>A list of adjacent groups.</returns>
         public static List<List<(int, int)>> GetAdjacentGroups(GameState gameState, int row, int col)
         {
             char activeColor = gameState.ColorToPlay[0];
@@ -60,6 +74,15 @@ namespace GoTerminalGame.Core
             return groups;
         }
 
+        /// <summary>
+        ///     Performs a depth-first search on the game board to identify groups of adjacent spaces with the same value.
+        /// </summary>
+        /// <param name="grid">A 2SD array representing the current state of the game board.</param>
+        /// <param name="row">The row to start the search from.</param>
+        /// <param name="col">The column to start the search from.</param>
+        /// <param name="targetColor">The color to search for.</param>
+        /// <param name="visited">An array to keep track of visited spaces.</param>
+        /// <param name="coordinates">An array to store the coordinates of spaces in the group.</param>
         public static void DFS (char?[,] grid, int row, int col, char? targetColor, bool[,] visited, List<(int, int)> coordinates)
         {
             int boardSize = grid.GetLength(0);  
@@ -79,6 +102,12 @@ namespace GoTerminalGame.Core
             DFS(grid, row, col + 1, targetColor, visited, coordinates);
         }
 
+        /// <summary>
+        ///     Determines if the specified group is captured.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
+        /// <param name="coordinates">A list of coordinates representing the group.</param>
+        /// <returns>A boolean value indicating whether the group is captured.</returns>
         public static bool IsGroupCaptured(GameState gameState, List<(int, int)> coordinates)
         {   
             var adjacentSpaces = new (int, int)[4];
@@ -107,6 +136,14 @@ namespace GoTerminalGame.Core
             }
             return true;
         }
+
+        /// <summary>
+        ///     Determines if the specified stone belongs to a captured group.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
+        /// <param name="row">The row to check.</param>
+        /// <param name="col">The column to check.</param>
+        /// <returns>A boolean value indicating whether the stone belongs to a captured group.</returns>
         public static bool IsGroupCaptured(GameState gameState, int row, int col)
         {
             List<(int, int)> group = new List<(int, int)>();

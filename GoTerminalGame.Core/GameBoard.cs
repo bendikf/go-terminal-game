@@ -26,6 +26,11 @@ namespace GoTerminalGame.Core
         public string[,] EmptyBoardLayout { get; init; }
         public string[,] PopulatedBoard { get; set; }
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="GameBoard"/> class.
+        /// </summary>
+        /// <param name="size">The size of the game board.</param>
+        /// <exception cref="ArgumentException">Throws when board size is not 9, 13 or 19.</exception>
         public GameBoard(int size)
         {
             if (size != 19 && size != 13 && size != 9)
@@ -37,6 +42,10 @@ namespace GoTerminalGame.Core
             PopulatedBoard = (string[,])EmptyBoardLayout.Clone();
         }
 
+        /// <summary>
+        ///     Populates the game board with the playing pieces from the game state.
+        /// </summary>
+        /// <param name="gameState">The current game state.</param>
         public void Populate(GameState gameState)
         {
             PopulatedBoard = (string[,])EmptyBoardLayout.Clone();
@@ -53,6 +62,11 @@ namespace GoTerminalGame.Core
             }   
         }
 
+        /// <summary>
+        ///     Sets up the layout of the game board according to the board size.
+        /// </summary>
+        /// <param name="size">The size of the game board.</param>
+        /// <returns>A 2D array representing the game board layout.</returns>
         private string[,] SetupBoard(int size)
         {
             string[,] layout = new string[size, size];

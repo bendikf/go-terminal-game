@@ -22,6 +22,10 @@ namespace GoTerminalGame.Core
 {
     public class Program
     {
+        /// <summary>
+        ///     The main entry point for the Go Terminal Game application. Prompts the user for a board size and starts a new game on a board of that size.
+        /// </summary>
+        /// <param name="args">Command-line arguments.</param>
         public static void Main(string[] args)
         {
             Console.Clear();

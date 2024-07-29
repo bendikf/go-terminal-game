@@ -37,6 +37,10 @@ namespace GoTerminalGame.Core
         // Game constants
         private readonly string _inputPrompt;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Game"/> class.
+        /// </summary>
+        /// <param name="size">The size of the game board.</param>
         public Game(int size = 19)
         {
             BoardSize = size;
@@ -54,6 +58,9 @@ namespace GoTerminalGame.Core
             // Play();
         }
 
+        /// <summary>
+        ///     Starts the game.
+        /// </summary>
         public void Play()  
         {
             // Render initial empty board
@@ -105,7 +112,7 @@ namespace GoTerminalGame.Core
                         throw new ArgumentOutOfRangeException();
                     }
 
-                    if (!GameLogic.IsSpotFree(State, row, col))
+                    if (!GameLogic.IsSpaceFree(State, row, col))
                     {
                         throw new ArgumentException("That spot is already taken. Play somewhere else.");
                     }

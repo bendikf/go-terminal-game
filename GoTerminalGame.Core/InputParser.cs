@@ -24,6 +24,10 @@ namespace GoTerminalGame.Core
 {
     public class InputParser
     {
+        /// <summary>
+        ///     Reads the player's input from the console.
+        /// </summary>
+        /// <returns>The player's input as an uppercase string.</returns>
         public static string ReadInput()
         {
             string? input;
@@ -35,6 +39,11 @@ namespace GoTerminalGame.Core
             return input!.ToUpper();
         }
 
+        /// <summary>
+        ///     Parses the input string into a row and column number.
+        /// </summary>
+        /// <param name="input">The input string to parse.</param>
+        /// <returns>A tuple containing the row and column number.</returns>
         public static (int row, int col) ParseInput(string input)
         {
             string pattern =  @"^(?=.*[A-S])(?=.*[1-9]|1[0-9]).*$"; 
