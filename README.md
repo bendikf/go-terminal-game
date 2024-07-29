@@ -6,6 +6,8 @@ The aim of the project was to learn .NET/C# (I was ready for a more challenging 
 
 The test projects were written using [MSTest](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-mstest-intro), [NUnit](https://nunit.org/) and [xUnit](https://xunit.net/) respectively (to be committed...). The aim of each of the test projects was to familiarise myself with a different unit-testing framework.
 
+NB! The application prints to the terminal in colour. If your terminal does not support several colours or if your terminal theme interferes with the specified colour choices, the game state may be unreadable.
+
 ## Introduction to Go
 
 Go is a strategy game which originated in China more than 2,500 years ago. Today it is played all around the world and is especially prevalent in East Asia.
