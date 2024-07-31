@@ -4,6 +4,17 @@
         <name>GoTerminalGame.Core</name>
     </assembly>
     <members>
+        <member name="M:GoTerminalGame.Core.DepthFirstSearch.DFS(System.Nullable{System.Char}[0:,0:],System.Int32,System.Int32,System.Nullable{System.Char},System.Boolean[0:,0:],System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
+            <summary>
+                Performs a depth-first search on the game board to identify groups of adjacent spaces with the same value.
+            </summary>
+            <param name="grid">A 2SD array representing the current state of the game board.</param>
+            <param name="row">The row to start the search from.</param>
+            <param name="col">The column to start the search from.</param>
+            <param name="targetColor">The color to search for.</param>
+            <param name="visited">An array to keep track of visited spaces.</param>
+            <param name="coordinates">An array to store the coordinates of spaces in the group.</param>
+        </member>
         <member name="M:GoTerminalGame.Core.Game.#ctor(System.Int32)">
             <summary>
                 Initializes a new instance of the <see cref="T:GoTerminalGame.Core.Game"/> class.
@@ -86,17 +97,6 @@
             <param name="row">The row from which to check for adjacent groups.</param>
             <param name="col">The column from which to check for adjacent groups.</param>
             <returns>A list of adjacent groups.</returns>
-        </member>
-        <member name="M:GoTerminalGame.Core.GameLogic.DFS(System.Nullable{System.Char}[0:,0:],System.Int32,System.Int32,System.Nullable{System.Char},System.Boolean[0:,0:],System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
-            <summary>
-                Performs a depth-first search on the game board to identify groups of adjacent spaces with the same value.
-            </summary>
-            <param name="grid">A 2SD array representing the current state of the game board.</param>
-            <param name="row">The row to start the search from.</param>
-            <param name="col">The column to start the search from.</param>
-            <param name="targetColor">The color to search for.</param>
-            <param name="visited">An array to keep track of visited spaces.</param>
-            <param name="coordinates">An array to store the coordinates of spaces in the group.</param>
         </member>
         <member name="M:GoTerminalGame.Core.GameLogic.IsGroupCaptured(GoTerminalGame.Core.GameState,System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
             <summary>
