@@ -20,6 +20,9 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Provides methods to render the game board and the heads-up display to the console.
+    /// </summary>
     public class GameBoardRenderer
     {
         private readonly ConsoleColor _originalBGColor = Console.BackgroundColor;

@@ -20,10 +20,28 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Represents the visual layout of a Go game board for rendering purposes.
+    /// </summary>
+    /// <remarks>
+    ///     This class is used to create and manage the visual representation of the game board,
+    ///     which is then rendered to the console by the <see cref="GameBoardRenderer"/> class.
+    /// </remarks>
     public class GameBoard
     {
+        /// <summary>
+        ///     Gets the size of the game board.
+        /// </summary>
         public int Size { get; init; }
+
+        /// <summary>
+        ///     Gets the layout of the empty game board as a 2D array.
+        /// </summary>
         public string[,] EmptyBoardLayout { get; init; }
+
+        /// <summary>
+        ///     Gets or sets the layout of the populated game board as a 2D array.
+        /// </summary>
         public string[,] PopulatedBoard { get; set; }
 
         /// <summary>

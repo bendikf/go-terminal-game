@@ -20,12 +20,29 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Represents a game of Go, managing the game board, game state, and rendering to the console.
+    /// </summary>
     public class Game
     {
-        // Properties
+        /// <summary>
+        ///     Gets the size of the game board.
+        /// </summary>
         public int BoardSize { get; init; }
+        
+        /// <summary>
+        ///     Gets the game board.
+        /// </summary>
         public GameBoard Board { get; init; }
+
+        /// <summary>
+        ///     Gets or sets the current game state.
+        /// </summary>
         public GameState State { get; set; }
+
+        /// <summary>
+        ///     Gets the game board renderer.
+        /// </summary>
         public GameBoardRenderer BoardRenderer { get; init; }
 
         // Private fields
@@ -187,5 +204,5 @@ namespace GoTerminalGame.Core
             BoardRenderer.Render(Board, State);
             BoardRenderer.RenderScores(blackScore, whiteScore);
         }
-    }   
+    }
 }

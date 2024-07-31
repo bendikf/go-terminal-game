@@ -20,6 +20,13 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Provides methods to calculate the scores for players in a game of Go.
+    /// </summary>
+    /// <remarks>
+    ///     The <see cref="ScoreCalculator"/> class includes methods to find areas to be scored, 
+    ///     calculate scores based on the current game state, and score those areas accordingly.
+    /// </remarks>
     public class ScoreCalculator
     {
         private static int _komi = 7;  // Default komi is 7 for area scoring.
@@ -63,8 +70,9 @@ namespace GoTerminalGame.Core
             {
                 for (int col = 0; col < gameState.State.GetLength(1); col++)
                 {
-                    List<(int, int)> area = new List<(int, int)>();
-                        DepthFirstSearch.DFS(gameState.State, row, col, null, visited, area);
+                    List<(int, int)> area = new List<(int, int)>();                    
+                    
+                    DepthFirstSearch.DFS(gameState.State, row, col, null, visited, area);
 
                     if (area.Count > 0)
                     {

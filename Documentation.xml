@@ -4,6 +4,15 @@
         <name>GoTerminalGame.Core</name>
     </assembly>
     <members>
+        <member name="T:GoTerminalGame.Core.DepthFirstSearch">
+            <summary>
+                Provides methods for performing depth-first search (DFS) operations on a game board.
+            </summary>
+            <remarks>
+                This class contains a static method for conducting a DFS on a 2D array representing a game board,
+                identifying groups of adjacent spaces with the same value.
+            </remarks>
+        </member>
         <member name="M:GoTerminalGame.Core.DepthFirstSearch.DFS(System.Nullable{System.Char}[0:,0:],System.Int32,System.Int32,System.Nullable{System.Char},System.Boolean[0:,0:],System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
             <summary>
                 Performs a depth-first search on the game board to identify groups of adjacent spaces with the same value.
@@ -11,9 +20,34 @@
             <param name="grid">A 2SD array representing the current state of the game board.</param>
             <param name="row">The row to start the search from.</param>
             <param name="col">The column to start the search from.</param>
-            <param name="targetColor">The color to search for.</param>
+            <param name="targetValue">The value to search for.</param>
             <param name="visited">An array to keep track of visited spaces.</param>
             <param name="coordinates">An array to store the coordinates of spaces in the group.</param>
+        </member>
+        <member name="T:GoTerminalGame.Core.Game">
+            <summary>
+                Represents a game of Go, managing the game board, game state, and rendering to the console.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.Game.BoardSize">
+            <summary>
+                Gets the size of the game board.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.Game.Board">
+            <summary>
+                Gets the game board.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.Game.State">
+            <summary>
+                Gets or sets the current game state.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.Game.BoardRenderer">
+            <summary>
+                Gets the game board renderer.
+            </summary>
         </member>
         <member name="M:GoTerminalGame.Core.Game.#ctor(System.Int32)">
             <summary>
@@ -24,6 +58,30 @@
         <member name="M:GoTerminalGame.Core.Game.Play">
             <summary>
                 Starts the game.
+            </summary>
+        </member>
+        <member name="T:GoTerminalGame.Core.GameBoard">
+            <summary>
+                Represents the visual layout of a Go game board for rendering purposes.
+            </summary>
+            <remarks>
+                This class is used to create and manage the visual representation of the game board,
+                which is then rendered to the console by the <see cref="T:GoTerminalGame.Core.GameBoardRenderer"/> class.
+            </remarks>
+        </member>
+        <member name="P:GoTerminalGame.Core.GameBoard.Size">
+            <summary>
+                Gets the size of the game board.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.GameBoard.EmptyBoardLayout">
+            <summary>
+                Gets the layout of the empty game board as a 2D array.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.GameBoard.PopulatedBoard">
+            <summary>
+                Gets or sets the layout of the populated game board as a 2D array.
             </summary>
         </member>
         <member name="M:GoTerminalGame.Core.GameBoard.#ctor(System.Int32)">
@@ -45,6 +103,11 @@
             </summary>
             <param name="size">The size of the game board.</param>
             <returns>A 2D array representing the game board layout.</returns>
+        </member>
+        <member name="T:GoTerminalGame.Core.GameBoardRenderer">
+            <summary>
+                Provides methods to render the game board and the heads-up display to the console.
+            </summary>
         </member>
         <member name="M:GoTerminalGame.Core.GameBoardRenderer.Render(GoTerminalGame.Core.GameBoard,GoTerminalGame.Core.GameState)">
             <summary>
@@ -78,6 +141,12 @@
         <member name="M:GoTerminalGame.Core.GameBoardRenderer.ResetToOriginalColors">
             <summary>
                 Resets the console colors to their original values.
+            </summary>
+        </member>
+        <member name="T:GoTerminalGame.Core.GameLogic">
+            <summary>
+                Provides game logic methods for a Go game, including determining free spaces,
+                finding adjacent groups of stones, and checking for captured groups.
             </summary>
         </member>
         <member name="M:GoTerminalGame.Core.GameLogic.IsSpaceFree(GoTerminalGame.Core.GameState,System.Int32,System.Int32)">
@@ -115,11 +184,41 @@
             <param name="col">The column to check.</param>
             <returns>A boolean value indicating whether the stone belongs to a captured group.</returns>
         </member>
+        <member name="T:GoTerminalGame.Core.SelectMenu">
+            <summary>
+                Represents a menu that allows the user to select a board size to start the game.
+            </summary>
+        </member>
         <member name="M:GoTerminalGame.Core.SelectMenu.SelectGameMode">
             <summary>
                 Welcomes the user to the game and prompts them to select a board size.
             </summary>
             <returns>A character representing the player's choice.</returns>
+        </member>
+        <member name="T:GoTerminalGame.Core.GameState">
+            <summary>
+                Represents the state of a Go game, including the board, the current player's turn, and the captured stones.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.GameState.State">
+            <summary>
+                Gets or sets the state of the game board.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.GameState.ColorToPlay">
+            <summary>
+                Gets or sets the color (player) to play the next move.
+            </summary>
+        </member>
+        <member name="P:GoTerminalGame.Core.GameState.CapturedBlack">
+            <summary>
+                Gets or sets the number of captured black stones.
+            </summary>        
+        </member>
+        <member name="P:GoTerminalGame.Core.GameState.CapturedWhite">
+            <summary>
+                Gets or sets the number of captured white stones.
+            </summary>
         </member>
         <member name="M:GoTerminalGame.Core.GameState.#ctor(System.Int32)">
             <summary>
@@ -198,6 +297,15 @@
             </summary>
             <returns>A hash code of the game state.</returns>
         </member>
+        <member name="T:GoTerminalGame.Core.InputParser">
+            <summary>
+                Provides methods to read and parse user inputs.
+            </summary>
+            <remarks>
+                The <see cref="T:GoTerminalGame.Core.InputParser"/> class includes methods to validate 
+                and convert user inputs into usable formats for the application.
+            </remarks>
+        </member>
         <member name="M:GoTerminalGame.Core.InputParser.ReadInput">
             <summary>
                 Reads the player's input from the console.
@@ -211,11 +319,29 @@
             <param name="input">The input string to parse.</param>
             <returns>A tuple containing the row and column number.</returns>
         </member>
+        <member name="T:GoTerminalGame.Core.Program">
+            <summary>
+                The main entry point for the application.
+            </summary>
+            <remarks>
+                This class contains the Main method, which is the entry point for the application.
+                It initializes the application and calls necessary methods to start the process.
+            </remarks>
+        </member>
         <member name="M:GoTerminalGame.Core.Program.Main(System.String[])">
             <summary>
                 The main entry point for the Go Terminal Game application. Prompts the user for a board size and starts a new game on a board of that size.
             </summary>
             <param name="args">Command-line arguments.</param>
+        </member>
+        <member name="T:GoTerminalGame.Core.ScoreCalculator">
+            <summary>
+                Provides methods to calculate the scores for players in a game of Go.
+            </summary>
+            <remarks>
+                The <see cref="T:GoTerminalGame.Core.ScoreCalculator"/> class includes methods to find areas to be scored, 
+                calculate scores based on the current game state, and score those areas accordingly.
+            </remarks>
         </member>
         <member name="M:GoTerminalGame.Core.ScoreCalculator.CalculateScore(GoTerminalGame.Core.GameState)">
             <summary>

@@ -22,6 +22,13 @@ using System.Text.RegularExpressions;
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Provides methods to read and parse user inputs.
+    /// </summary>
+    /// <remarks>
+    ///     The <see cref="InputParser"/> class includes methods to validate 
+    ///     and convert user inputs into usable formats for the application.
+    /// </remarks>
     public class InputParser
     {
         /// <summary>

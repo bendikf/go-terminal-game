@@ -20,6 +20,13 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Provides methods for performing depth-first search (DFS) operations on a game board.
+    /// </summary>
+    /// <remarks>
+    ///     This class contains a static method for conducting a DFS on a 2D array representing a game board,
+    ///     identifying groups of adjacent spaces with the same value.
+    /// </remarks>
     public class DepthFirstSearch
     {
         /// <summary>
@@ -28,14 +35,14 @@ namespace GoTerminalGame.Core
         /// <param name="grid">A 2SD array representing the current state of the game board.</param>
         /// <param name="row">The row to start the search from.</param>
         /// <param name="col">The column to start the search from.</param>
-        /// <param name="targetColor">The color to search for.</param>
+        /// <param name="targetValue">The value to search for.</param>
         /// <param name="visited">An array to keep track of visited spaces.</param>
         /// <param name="coordinates">An array to store the coordinates of spaces in the group.</param>
-        public static void DFS (char?[,] grid, int row, int col, char? targetColor, bool[,] visited, List<(int, int)> coordinates)
+        public static void DFS (char?[,] grid, int row, int col, char? targetValue, bool[,] visited, List<(int, int)> coordinates)
         {
             int boardSize = grid.GetLength(0);  
 
-            if (row < 0 || row >= boardSize || col < 0 || col >= boardSize || visited[row, col] || grid[row, col] != targetColor)
+            if (row < 0 || row >= boardSize || col < 0 || col >= boardSize || visited[row, col] || grid[row, col] != targetValue)
             {
                 return;
             }
@@ -44,10 +51,10 @@ namespace GoTerminalGame.Core
             coordinates.Add((row, col));
 
             // Visit adjacent spots (up, down, left, right)
-            DFS(grid, row - 1, col, targetColor, visited, coordinates);
-            DFS(grid, row + 1, col, targetColor, visited, coordinates);
-            DFS(grid, row, col - 1, targetColor, visited, coordinates);
-            DFS(grid, row, col + 1, targetColor, visited, coordinates);
+            DFS(grid, row - 1, col, targetValue, visited, coordinates);
+            DFS(grid, row + 1, col, targetValue, visited, coordinates);
+            DFS(grid, row, col - 1, targetValue, visited, coordinates);
+            DFS(grid, row, col + 1, targetValue, visited, coordinates);
         }
     }
 }

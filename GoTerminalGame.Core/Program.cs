@@ -20,6 +20,13 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     The main entry point for the application.
+    /// </summary>
+    /// <remarks>
+    ///     This class contains the Main method, which is the entry point for the application.
+    ///     It initializes the application and calls necessary methods to start the process.
+    /// </remarks>
     public class Program
     {
         /// <summary>
@@ -28,7 +35,6 @@ namespace GoTerminalGame.Core
         /// <param name="args">Command-line arguments.</param>
         public static void Main(string[] args)
         {
-            Console.Clear();
             char choice = SelectMenu.SelectGameMode();
 
             switch (choice)

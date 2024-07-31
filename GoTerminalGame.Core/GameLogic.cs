@@ -20,6 +20,10 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Provides game logic methods for a Go game, including determining free spaces,
+    ///     finding adjacent groups of stones, and checking for captured groups.
+    /// </summary>
     public class GameLogic
     {
         /// <summary>

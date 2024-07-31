@@ -20,14 +20,33 @@
 
 namespace GoTerminalGame.Core
 {
+    /// <summary>
+    ///     Represents the state of a Go game, including the board, the current player's turn, and the captured stones.
+    /// </summary>
     public class GameState
     {
-        private readonly int _boardSize;
+        /// <summary>
+        ///     Gets or sets the state of the game board.
+        /// </summary>
         public char?[,] State { get; private set; }
+        
+        /// <summary>
+        ///     Gets or sets the color (player) to play the next move.
+        /// </summary>
         public string ColorToPlay { get; private set; }
 
-        public int CapturedWhite { get; set; }
+        /// <summary>
+        ///     Gets or sets the number of captured black stones.
+        /// </summary>        
         public int CapturedBlack { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the number of captured white stones.
+        /// </summary>
+        public int CapturedWhite { get; set; }
+
+        // Private fields:
+        private readonly int _boardSize;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="GameState"/> class.
