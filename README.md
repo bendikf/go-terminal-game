@@ -12,9 +12,9 @@ Go is a strategy game which originated in China more than 2,500 years ago. Today
 
 The game is known by many names, such as Baduk (Korea), Wéiqí (China) and Cờ vây (Vietnam). I have chosen to use the Japanese name of the game (Go), as it is the most commonly used name for the game worldwide.
 
-Play takes place on a grid, typically with the dimensions 19×19, but sometimes on smaller boards such as 13×13 or 9×9. Players take alternating turns placing stones on the intersections with the goal of capturing territory.
+Play takes place on a grid, typically with the dimensions 19×19, but sometimes on smaller boards such as 13×13 or 9×9. Players take alternating turns placing stones on intersections with the goal of capturing territory.
 
-For a detailed overview of the rules, see this page from [The British Go Association](https://www.britgo.org/intro/intro2.html) (rules may vary slightly from this implementation, see below). If you are interested in learning to play the game, see e.g. https://www.pandanet.co.jp/English/learning_go/learning_go_1.html.
+For a detailed overview of the rules, see this page from [The British Go Association](https://www.britgo.org/intro/intro2.html) (rules may vary slightly from this implementation, see below). If you are interested in learning to play the game, see e.g. <https://www.pandanet.co.jp/English/learning_go/learning_go_1.html>.
 
 ## Using the application
 
@@ -40,4 +40,4 @@ Go is played according to several different rulesets in different parts of the w
 
 ---
 
-[GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) licensed | Copyright © 2024 Bendik J. Ferkingstad, https://github.com/bendikf
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) licensed | Copyright © 2024 Bendik J. Ferkingstad, <https://github.com/bendikf>
