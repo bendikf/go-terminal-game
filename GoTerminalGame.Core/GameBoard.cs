@@ -31,7 +31,7 @@ namespace GoTerminalGame.Core
         /// </summary>
         /// <param name="size">The size of the game board.</param>
         /// <exception cref="ArgumentException">Throws when board size is not 9, 13 or 19.</exception>
-    public GameBoard(int size)  
+        public GameBoard(int size)  
         {
             if (size != 19 && size != 13 && size != 9)
             {
