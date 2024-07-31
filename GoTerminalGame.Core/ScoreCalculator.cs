@@ -64,7 +64,7 @@ namespace GoTerminalGame.Core
                 for (int col = 0; col < gameState.State.GetLength(1); col++)
                 {
                     List<(int, int)> area = new List<(int, int)>();
-                    GameLogic.DFS(gameState.State, row, col, null, visited, area);
+                        DepthFirstSearch.DFS(gameState.State, row, col, null, visited, area);
 
                     if (area.Count > 0)
                     {
