@@ -22,11 +22,13 @@ The applicatio has not been packaged in any way. To run, download and install th
 
 The game can be played with three board configurations, 19×19, 13×13 or 9×9.
 
-When in-game, the active player may place a stone by specifying in which row and in which column the stone should be placed. The application accepts a combination of a letter (case insensitive) representing the column (e.g. A-S for 19×19) and a number representing the row (e.g. "a13" or "2e"). 
+When in-game, the active player may place a stone by specifying in which row and in which column the stone should be placed. The application accepts a combination of a letter (case insensitive) representing the column (e.g. A-T for 19×19) and a number representing the row (e.g. "a13" or "2e").
 
 Alternatively, a player can pass by typing "pass" (case insensitive). The game is over when both players have consecutively passed, and points are awarded.
 
 The application is terminated either by typing "exit" or by pressing <kbd>Ctrl</kbd> + <kbd>C</kbd>.  
+
+Note! In Go board notation, the letter 'I' is commonly skipped to avoid confusion with the number 1. This is reflected in the application.
 
 ## Rules variations
 
