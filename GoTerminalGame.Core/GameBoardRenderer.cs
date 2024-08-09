@@ -52,8 +52,9 @@ namespace GoTerminalGame.Core
         public void RenderGameBoard(GameBoard gameBoard)
         {
             Console.Write("   ");
-            for (char letter = 'A'; letter <= 'A' + gameBoard.Size - 1; letter++)
+            for (char letter = 'A'; letter <= 'A' + gameBoard.Size; letter++)
             {
+                if (letter == 'I') continue;
                 Console.Write(letter);
             }
             Console.WriteLine();
