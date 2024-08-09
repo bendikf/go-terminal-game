@@ -70,7 +70,7 @@ namespace GoTerminalGame.Core
             _capturedThisTurn = 0;
             _passEndsGame = false;
 
-            _inputPrompt = $"Enter a combination of a letter (A-{(char)('A' + BoardSize - 1)}) and a number (1-{BoardSize}) or \"pass\": ";
+            _inputPrompt = $"Enter a combination of a letter (A-{(char)('A' + BoardSize)}) and a number (1-{BoardSize}) or \"pass\": ";
 
             // Play();
         }

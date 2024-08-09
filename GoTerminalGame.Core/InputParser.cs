@@ -53,7 +53,7 @@ namespace GoTerminalGame.Core
         /// <returns>A tuple containing the row and column number.</returns>
         public static (int row, int col) ParseInput(string input)
         {
-            string pattern =  @"^(?=.*[A-S])(?=.*[1-9]|1[0-9]).*$"; 
+            string pattern = @"^(?=.*[A-HJ-S])(?=.*[1-9]|1[0-9]).*$";
 
             if (!Regex.IsMatch(input, pattern))
             {
@@ -77,7 +77,7 @@ namespace GoTerminalGame.Core
             }
 
             // Convert letter and number to row and column number
-            int col = letter - 'A';
+            int col = letter - 'A' - (letter > 'I' ? 1 : 0);
             int row = number - 1;
             
             return (row, col);
