@@ -53,7 +53,7 @@ namespace GoTerminalGame.Core
         /// <returns>A tuple containing the row and column number.</returns>
         public static (int row, int col) ParseInput(string input)
         {
-            string pattern = @"^(?=.*[A-HJ-S])(?=.*[1-9]|1[0-9]).*$";
+            string pattern = @"^(?=.*[A-HJ-T])(?=.*[1-9]|1[0-9]).*$";
 
             if (!Regex.IsMatch(input, pattern))
             {
