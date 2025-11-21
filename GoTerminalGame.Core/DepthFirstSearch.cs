@@ -32,7 +32,7 @@ namespace GoTerminalGame.Core
         /// <summary>
         ///     Performs a depth-first search on the game board to identify groups of adjacent spaces with the same value.
         /// </summary>
-        /// <param name="grid">A 2SD array representing the current state of the game board.</param>
+        /// <param name="grid">A 2D array representing the current state of the game board.</param>
         /// <param name="row">The row to start the search from.</param>
         /// <param name="col">The column to start the search from.</param>
         /// <param name="targetValue">The value to search for.</param>
