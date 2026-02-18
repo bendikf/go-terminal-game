@@ -18,7 +18,7 @@ For a detailed overview of the rules, see this page from [The British Go Associa
 
 ## Using the application
 
-The applicatio has not been packaged in any way. To run, download and install the latest .NET SDK and run the project with the command `dotnet run`.
+The application has not been packaged in any way. To run, download and install the latest .NET SDK and run the project with the command `dotnet run`.
 
 The game can be played with three board configurations, 19×19, 13×13 or 9×9.
 
@@ -28,7 +28,7 @@ Alternatively, a player can pass by typing "pass" (case insensitive). The game i
 
 The application is terminated either by typing "exit" or by pressing <kbd>Ctrl</kbd> + <kbd>C</kbd>.  
 
-Note! In Go board notation, the letter 'I' is commonly skipped to avoid confusion with the number 1. This is reflected in the application.
+> Note! In Go board notation, the letter 'I' is commonly skipped to avoid confusion with the number 1. This is reflected in the application.
 
 ## Rules variations
 
@@ -38,7 +38,7 @@ Go is played according to several different rulesets in different parts of the w
 * The game uses a komi value of 7 for all board sizes. This value is added to the second (white) player's score to compensate for first-player advantage.
 * Draws result in victory for the white player.
 * Any move which would result in self-capture is disallowed.
-* Any move which would result in the repeat of a previous game state (incl. active player) is disallowed.
+* Any move which would result in the repeat of a previous game state (incl. whose turn it is) is disallowed.
 
 ---
 
